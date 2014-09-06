@@ -4,4 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :confirmable, :registerable,
          :recoverable, :rememberable, :trackable, :timeoutable, :validatable
   belongs_to :budget
+  
+  has_many :users_accounts
+  has_many :accounts, :through => :users_accounts
 end

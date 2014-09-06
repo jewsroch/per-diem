@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901192129) do
+ActiveRecord::Schema.define(version: 20140906193204) do
+
+  create_table "accounts", force: true do |t|
+    t.integer  "balance_cents",    default: 0,     null: false
+    t.string   "balance_currency", default: "USD", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
 
   create_table "budgets", force: true do |t|
     t.datetime "start_date"
@@ -23,6 +31,18 @@ ActiveRecord::Schema.define(version: 20140901192129) do
     t.integer  "savings_goal_cents",    default: 0,     null: false
     t.string   "savings_goal_currency", default: "USD", null: false
   end
+
+  create_table "transactions", force: true do |t|
+    t.integer  "amount"
+    t.integer  "account_id"
+    t.string   "status"
+    t.datetime "date"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -50,5 +70,12 @@ ActiveRecord::Schema.define(version: 20140901192129) do
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "users_accounts", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
