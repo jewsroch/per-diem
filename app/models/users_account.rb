@@ -1,4 +1,4 @@
-class UsersAccounts < ActiveRecord::Base
+class UsersAccount < ActiveRecord::Base
   belongs_to :user
   belongs_to :account
 end

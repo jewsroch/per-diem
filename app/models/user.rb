@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :timeoutable, :validatable
   belongs_to :budget
   
-  has_many :users_accounts
-  has_many :accounts, :through => :users_accounts
+  has_many :users_account
+  has_many :accounts, :through => :users_account
 end
