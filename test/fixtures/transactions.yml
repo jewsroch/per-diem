@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 
+  account_id: 1
+  state: MyString
+  transaction_date: 2014-09-06
+  category_id: 1
+  user_id: 1
+
+two:
+  amount: 
+  account_id: 1
+  state: MyString
+  transaction_date: 2014-09-06
+  category_id: 1
+  user_id: 1

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906193204) do
+ActiveRecord::Schema.define(version: 20140912000024) do
 
   create_table "accounts", force: true do |t|
     t.integer  "balance_cents",    default: 0,     null: false
@@ -30,18 +30,35 @@ ActiveRecord::Schema.define(version: 20140906193204) do
     t.string   "total_budget_currency", default: "USD", null: false
     t.integer  "savings_goal_cents",    default: 0,     null: false
     t.string   "savings_goal_currency", default: "USD", null: false
+    t.integer  "category_id"
   end
 
-  create_table "transactions", force: true do |t|
-    t.integer  "amount"
-    t.integer  "account_id"
-    t.string   "status"
-    t.datetime "date"
-    t.integer  "user_id"
+  add_index "budgets", ["category_id"], name: "index_budgets_on_category_id"
+
+  create_table "categories", force: true do |t|
+    t.string   "title"
+    t.integer  "amount_cents",    default: 0,     null: false
+    t.string   "amount_currency", default: "USD", null: false
+    t.integer  "budget_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "transactions", force: true do |t|
+    t.integer  "amount_cents",     default: 0,     null: false
+    t.string   "amount_currency",  default: "USD", null: false
+    t.string   "state"
+    t.date     "transaction_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.integer  "account_id"
+    t.text     "notes"
+  end
+
+  add_index "transactions", ["account_id"], name: "index_transactions_on_account_id"
+  add_index "transactions", ["category_id"], name: "index_transactions_on_category_id"
   add_index "transactions", ["user_id"], name: "index_transactions_on_user_id"
 
   create_table "users", force: true do |t|

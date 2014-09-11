@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
   belongs_to :budget
   
   has_many :users_account
+  has_many :transactions
   has_many :accounts, :through => :users_account
 end
