@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (3.3.3)
     actionmailer (4.1.4)
       actionpack (= 4.1.4)
       actionview (= 4.1.4)
@@ -132,11 +133,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm (~> 3.3.3)
   coffee-rails (~> 4.0.0)
-  devise
+  devise (~> 3.3.0)
   jbuilder (~> 2.0)
   jquery-rails
-  money-rails
+  money-rails (~> 0.12.0)
   rails (= 4.1.4)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
