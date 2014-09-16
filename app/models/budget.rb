@@ -3,4 +3,7 @@ class Budget < ActiveRecord::Base
 
   has_many :users
   has_many :categories
+
+  validates :start_date, presence: true
+  validates :end_date, presence: true
 end

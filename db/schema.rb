@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140912000024) do
+ActiveRecord::Schema.define(version: 20140916020233) do
 
   create_table "accounts", force: true do |t|
     t.integer  "balance_cents",    default: 0,     null: false
@@ -30,10 +30,7 @@ ActiveRecord::Schema.define(version: 20140912000024) do
     t.string   "total_budget_currency", default: "USD", null: false
     t.integer  "savings_goal_cents",    default: 0,     null: false
     t.string   "savings_goal_currency", default: "USD", null: false
-    t.integer  "category_id"
   end
-
-  add_index "budgets", ["category_id"], name: "index_budgets_on_category_id"
 
   create_table "categories", force: true do |t|
     t.string   "title"
