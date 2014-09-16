@@ -3,6 +3,8 @@ class Transaction < ActiveRecord::Base
   belongs_to :account
   belongs_to :category
 
+  monetize :amount_cents
+
   include AASM
 
   aasm :column => 'state' do
@@ -22,4 +24,10 @@ class Transaction < ActiveRecord::Base
       transitions :from => [:active, :pending], :to => :cancelled
     end
   end
+
+  validates :amount, presence: true
+  validates :transaction_date, presence: true
+  validates :user, presence: true
+  validates :category, presence: true
+  validates :account, presence: true
 end
