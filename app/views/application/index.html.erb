@@ -1,0 +1,58 @@
+<p>Index page</p>
+
+<%= link_to "Sign Up", new_user_registration_path %> | 
+<%= link_to "Sign In", new_user_session_path %>
+
+ <h1>Listing Transactions</h1>
+ 
+<table>
+  <tr>
+    <th>Amount</th>
+    <th>Notes</th>
+    <th>Category</th>
+  </tr>
+ 
+  <% @transactions.each do |transaction| %>
+    <tr>
+      <td><%= transaction.amount %></td>
+      <td><%= transaction.category.title %></td>
+      <td><%= transaction.notes %></td>
+    </tr>
+  <% end %>
+</table>
+
+ <h1>Listing Budgets</h1>
+ 
+<table>
+  <tr>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Total Budget</th>
+    <th>Savings Goal</th>
+  </tr>
+ 
+  <% @budgets.each do |budget| %>
+    <tr>
+      <td><%= budget.start_date %></td>
+      <td><%= budget.end_date %></td>
+      <td><%= currency_symbol %><%= budget.total_budget %></td>
+      <td><%= currency_symbol %><%= budget.savings_goal %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h1>Listing Accounts</h1>
+
+<table>
+  <tr>
+    <th>Account Name</th>
+    <th>Balance</th>
+  </tr>
+
+  <% @accounts.each do |account| %>
+    <tr>
+      <td><%= account.name %></td>
+      <td><%= account.balance %></td>
+    </tr>
+  <% end %>
+</table>
