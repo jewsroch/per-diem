@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root to: 'transactions#index'
 
+  resources :categories
+  resources :accounts
   resources :transactions
 
   # Example of regular route:

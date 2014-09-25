@@ -10,7 +10,7 @@
   </tr>
 
   <tr>
-    <td><%= currency_symbol %><%= humanized_money @transaction.amount%></td>
+    <td><%= currency_symbol %><%= @transaction.amount%></td>
     <td><%= @transaction.category.title%></td>
     <td><%= @transaction.transaction_date%></td>
     <td><%= @transaction.user.first_name%></td>

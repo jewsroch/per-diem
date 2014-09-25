@@ -23,17 +23,17 @@
   <p>   
 
     <%= f.label :user_id %><br>
-    <%= f.collection_select :user_id, User.all, :id, :first_name%>
+    <%= f.collection_select :user_id, @users, :id, :first_name%>
   </p>
 
   <p>
     <%= f.label :category_id %><br>
-    <%= f.collection_select :category_id, Category.all, :id, :title%>
+    <%= f.collection_select :category_id, @categories, :id, :title%>
   </p>
 
   <p>
     <%= f.label :account_id %><br>
-    <%= f.collection_select :account_id, Account.all, :id, :name%>
+    <%= f.collection_select :account_id, @accounts, :id, :name%>
   </p>
   
   <p>

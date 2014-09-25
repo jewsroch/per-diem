@@ -5,10 +5,6 @@ class TransactionsController < ApplicationController
     @transactions = Transaction.all
   end
 
-  def show
-    @transaction = Transaction.find(params[:id])
-  end
-
   def create
     @transaction = Transaction.new(transaction_params)
 
@@ -21,6 +17,19 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = Transaction.new
+    @users = User.all
+    @categories = Category.all
+    @accounts = Account.all
+  end
+
+  def show
+    @transaction = Transaction.find(params[:id])
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   private
