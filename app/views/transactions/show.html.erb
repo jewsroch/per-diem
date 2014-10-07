@@ -7,6 +7,7 @@
     <th>Date</th>
     <th>User</th>
     <th>Account</th>
+    <th>status</th>
   </tr>
 
   <tr>
@@ -15,6 +16,7 @@
     <td><%= @transaction.transaction_date%></td>
     <td><%= @transaction.user.first_name%></td>
     <td><%= @transaction.account.name %></td>
+    <td><%= @transaction.state %></td>
   </tr>
 </table>
 
