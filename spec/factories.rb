@@ -21,10 +21,10 @@ FactoryGirl.define do
     f.last_name { Faker::Name.last_name }
     f.email { Faker::Internet.email }
     budget
-  end
 
-  factory :user_with_accounts, :parent => :user do
-    accounts {[FactoryGirl.create(:account), FactoryGirl.create(:account)]}
+    trait :with_accounts do
+      accounts { FactoryGirl.create_list(:account, 2) }
+    end
   end
 
   factory :category do |f|
