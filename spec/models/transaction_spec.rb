@@ -12,6 +12,22 @@ describe Transaction do
     expect(FactoryGirl.build(:transaction, transaction_date: nil)).not_to be_valid
   end
 
+  it "is invalid without an amount" do
+    expect(FactoryGirl.build(:transaction, amount_cents: nil)).not_to be_valid
+  end
+
+  it "is invalid without a user" do
+    expect(FactoryGirl.build(:transaction, user: nil)).not_to be_valid
+  end
+
+  it "is invalid without a category" do
+    expect(FactoryGirl.build(:transaction, category: nil)).not_to be_valid
+  end
+
+  it "is invalid without a account" do
+    expect(FactoryGirl.build(:transaction, account: nil)).not_to be_valid
+  end
+
   context 'when confirmed' do
     it "is active" do
       transaction.confirm
