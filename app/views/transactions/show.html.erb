@@ -1,0 +1,23 @@
+<h2>Transaction <%= @transaction.id %></h2>
+
+<table>
+  <tr>
+    <th>Amount</th>
+    <th>Category</th>
+    <th>Date</th>
+    <th>User</th>
+    <th>Account</th>
+    <th>status</th>
+  </tr>
+
+  <tr>
+    <td><%= currency_symbol %><%= @transaction.amount%></td>
+    <td><%= @transaction.category.title%></td>
+    <td><%= @transaction.transaction_date%></td>
+    <td><%= @transaction.user.first_name%></td>
+    <td><%= @transaction.account.name %></td>
+    <td><%= @transaction.state %></td>
+  </tr>
+</table>
+
+<%= link_to 'Back to all Transactions', transactions_path %>

@@ -10,10 +10,10 @@ class Transaction < ActiveRecord::Base
   aasm :column => 'state' do
     state :pending, :initial => true
     state :active
-    state :cancelled
+    state :canceled
 
     event :confirm do
-      transitions :from => :pending, :to => :active
+      transitions :from => [:pending, :canceled], :to => :active
     end
 
     event :defer do
@@ -21,7 +21,7 @@ class Transaction < ActiveRecord::Base
     end
 
     event :cancel do
-      transitions :from => [:active, :pending], :to => :cancelled
+      transitions :from => [:active, :pending], :to => :canceled
     end
   end
 
